@@ -2,33 +2,29 @@ package org.example.Student;
 
 import java.sql.*;
 
-import static java.lang.Class.forName;
-
 public class Jdbc {
+    public void getData() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "opuruiche");
+        Statement obj = connect.createStatement();
+    }
+    public void saveStudent(StudentInfo student) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "opuruiche");
+        PreparedStatement statement = connect.prepareStatement("insert into students(Name,Course,Age)"+ "values(?,?,?)");
+        statement.setString(1,student.getName());
+        statement.setString(2,student.getCourse());
+        statement.setInt(3,student.getAge());
 
-        //  static void connect(){}
-        public void getData() throws ClassNotFoundException, SQLException {
-            forName("com.mysql.cj.jdbc.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/myproject", "root", "opuruiche");
-            Statement obj = connect.createStatement();
-        }
-        public void createTable() throws SQLException, ClassNotFoundException {
-            String sql= "create table students(" +
-                    "name varchar(20)," +
-                    " course varchar(20))";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/myproject", "root", "opuruiche");
-            PreparedStatement statement = connect.prepareStatement(sql);
-            statement.execute();
-        }
+        statement.executeUpdate();
+        PreparedStatement statement1 = connect.prepareStatement("Select * from students");
+    }
 
-        public static void main(String[] args) throws SQLException, ClassNotFoundException {
-            Jdbc jdbc = new Jdbc();
-            jdbc.createTable();
-
-        }
+    public static void main(String[] args) {
 
     }
 
+
+    }
 
 

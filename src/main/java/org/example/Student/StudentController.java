@@ -8,10 +8,10 @@ public class StudentController {
             StudentInfo student2 = new StudentInfo("Ken","Web Dev",17);
             StudentInfo student3 = new StudentInfo("Kate","Java",21);
 
-//       Jdbc jdbc = new Jdbc();
-//       jdbc.saveStudent(student1);
-//       jdbc.saveStudent(student2);
-//       jdbc.saveStudent(student3);
+       Jdbc jdbc = new Jdbc();
+       jdbc.saveStudent(student1);
+       jdbc.saveStudent(student2);
+       jdbc.saveStudent(student3);
         }
     }
 
