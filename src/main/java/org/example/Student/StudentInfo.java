@@ -1,25 +1,25 @@
 package org.example.Student;
 
 public class StudentInfo {
-    private String name;
-    private String course;
-    private int age;
+    private String Name;
+    private String Course;
+    private int Age;
 
-    public StudentInfo(String name, String course, int age) {
-        this.name = name;
-        this.course = course;
-        this.age = age;
+    public StudentInfo(String Name, String Course, int Age) {
+        this.Name = Name;
+        this.Course = Course;
+        this.Age = Age;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public String getCourse() {
-        return course;
+        return Course;
     }
 
     public int getAge() {
-        return age;
+        return Age;
     }
 }
